@@ -193,11 +193,14 @@ main{
     justify-content: space-evenly;
   }
 
+
   .social_icons {
+    // flex: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     font-size: 1.5rem;
+    padding: 1rem 2rem;
 
     @include sm {
     margin-top: 1rem;
@@ -215,8 +218,10 @@ main{
   }
 
   ._cp {
+    // flex: 2;
     font-size: 14px;
     color: #ccc;
+    padding: 1rem 2rem;
   }
 }
 </style>

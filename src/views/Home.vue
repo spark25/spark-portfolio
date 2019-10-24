@@ -28,8 +28,8 @@
           <img :src="dp" alt srcset class="_dp animated fadeIn" />
         </div>
 
-        <div class="_intro">
-          <p class="_intro_text">
+        <div class="_intro animated fadeInUp slow">
+          <p class="_intro_text ">
             I am Sumit, a Software Engineer from Pune, India,
             <br> currently working with Zensar Technologies
             <br> I create scalable web apps and make sure they look awesome while I am at it.
@@ -48,10 +48,42 @@
     <section class="section">
       <div class="section_head">What I do</div>
       <div class="domain_grid">
-        <div class="domain_card _design"></div>
-        <div class="domain_card _development"></div>
-        <div class="domain_card _backend"></div>
-        <div class="domain_card _database"></div>
+        <div class="domain_card _design">
+         <img src="@/assets/illustrations/design2.svg" class="card_img" alt="" srcset="">
+          <div class="card_info">
+            <div class="card_title heading light_text">UI/UX Design</div>
+            <div class="card_desc">
+              Wire-Frames, mockups and more
+            </div>
+          </div>
+        </div>
+        <div class="domain_card _responsive">
+           <img src="@/assets/illustrations/responsive2.svg" class="card_img" alt="" srcset="">
+          <div class="card_info ">
+            <div class="card_title heading light_text">Responsive Design</div>
+            <div class="card_desc">
+              Design that adaps to every device you use
+            </div>
+            </div>
+        </div>
+        <div class="domain_card _development">
+           <img src="@/assets/illustrations/webdev2.svg" class="card_img" alt="" srcset="">
+          <div class="card_info">
+            <div class="card_title heading light_text"> Web Development</div>
+            <div class="card_desc">
+              Backend, Databases, APIs, everything covered
+            </div>
+            </div>
+        </div>
+        <div class="domain_card _visualization">
+           <img src="@/assets/illustrations/visualization1.svg" class="card_img" alt="" srcset="">
+          <div class="card_info">
+            <div class="card_title heading light_text">Visualization</div>
+            <div class="card_desc">
+              Data into information, and information into insights
+            </div>
+            </div>
+        </div>
       </div>
     </section>
 </div>
@@ -153,15 +185,75 @@ export default {
 .section {
   background: $offWhite;
   min-height: 100vh;
-  padding: 2rem 4rem;
+  padding: 4rem 4rem;
+
+  @include sm{
+    padding: 3rem 1.5rem; 
+  }
+   @include md{
+    padding: 3rem 1.5rem; 
+  }
   .domain_grid{
     display: grid;
     grid-gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
+     @include sm{
+   grid-gap: 2rem;
+  }
+
+    @include md{
+   grid-gap: 2rem;
+  }
     .domain_card{
       background: rgb(255, 255, 255);
       height: 400px;
+      display: grid;
+      grid-template-rows: auto minmax(30%, 35%);
+      transition: transform 0.5s;
+      overflow: hidden;
+      &:hover{ 
+        transform: translateY(-10px);
+        // box-shadow: 0px 18px 30px -12px #c2c2c2
+        }
+
+        @include sm{
+          &:hover{
+          transform:none;
+        }
+      }
+      .card_img{
+        max-width: 100%;
+        height: 100%;
+        transition: all 5s;
+        z-index: 1;
+        &:hover{
+          transform: scale(1.2);
+          transform-origin: center center;
+        }
+       
+      
+
+      }
+      .card_info{
+        font-family: 'Roboto', sans-serif;
+        background: $darkSec;
+        color: #ddd;
+        padding: 0.5rem 1rem;
+        transition: color 0.5s;
+        z-index: 2;
+
+        &:hover{
+          color: $orange;
+        }
+
+        .card_desc{
+           font-family: 'Poppins', sans-serif !important;
+           line-height: normal;
+          color: #c2c2c2 !important;
+          margin-top: 10px;
+      }
+      }
     }
   }
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Roboto:400,500,700|Poppins:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Roboto:300,400,500,700|Poppins:400,500,700&display=swap');
 
 // font-family: 'Poppins', sans-serif;
 // font-family: 'Roboto Condensed', sans-serif;
@@ -98,6 +98,14 @@ nav a{
 .display_3{
   font-size: 30px;
   margin: 0;
+  @include sm{
+    font-size: 20px;
+  }
+}
+
+.heading{
+  font-size: 30px;
+  margin: 0;
 }
 
 .bold_txt{
@@ -107,8 +115,12 @@ nav a{
   font-weight: 500;
 }
 
-.light_txt{
+.regular_txt{
   font-weight: 400;
+}
+
+.light_text{
+  font-weight: 300;
 }
 
 
@@ -117,12 +129,6 @@ nav a{
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
   // white-space: pre-line,
-}
-.heading{
-  font-family: 'Roboto', sans-serif;
-  font-size: 3vmax;
-  font-weight: 400;
-  // white-space: pre-line
 }
 
 .section_head{
