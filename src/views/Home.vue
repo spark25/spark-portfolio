@@ -1,7 +1,7 @@
 <template>
 <div class="_home">
-    <div class="main">
-      <div class="left_main">
+    <div class="highlight">
+      <div class="left_highlight">
         <div class="overlay_grid">
           <div class="_bg animated fadeInLeft slow"></div>
 
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="right_main">
+      <div class="right_highlight">
         <div class="dp_grid">
           <div
             class="_frame animated fadeInRight"
@@ -25,15 +25,15 @@
           >
           <div class="display_1"> Hello!</div>
           </div>
-          <img :src="dp" alt srcset height="300px" class="_dp animated fadeIn" />
+          <img :src="dp" alt srcset class="_dp animated fadeIn" />
         </div>
 
-        <div class="_intro animated fadeInUp slower">
-          <div class="_intro_text">
+        <div class="_intro">
+          <p class="_intro_text">
             I am Sumit, a Software Engineer from Pune, India,
-            <br />currently working with Zensar Technologies
-            <br />I create scalable web apps and make sure they look awesome while I am at it.
-          </div>
+            <br> currently working with Zensar Technologies
+            <br> I create scalable web apps and make sure they look awesome while I am at it.
+          </p>
 
           <div class="btn btn-yellow">
             <div class="btn_text">Know More</div>
@@ -45,7 +45,15 @@
       </div>
     </div>
 
-    <section class="section"></section>
+    <section class="section">
+      <div class="section_head">What I do</div>
+      <div class="domain_grid">
+        <div class="domain_card _design"></div>
+        <div class="domain_card _development"></div>
+        <div class="domain_card _backend"></div>
+        <div class="domain_card _database"></div>
+      </div>
+    </section>
 </div>
 </template>
 
@@ -67,39 +75,35 @@ export default {
 </script>
 <style lang="scss" scoped>
 
-.main {
+.highlight {
   width: 100%;
   min-height: 90vh;
   display: grid;
-  // grid-template-columns: 1fr 1fr;
-  grid-template-areas: "left right";
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1rem;
   align-items: center;
 
   @include sm {
-    grid-template-areas:
-      "left"
-      "right";
+
     margin-top: 50px;
-    height: fit-content;
   }
   @include md {
-    grid-template-areas:
-      "left"
-      "right";
     margin-top: 50px;
-    height: fit-content;
   }
 
-  .left_main {
+  .left_highlight {
     padding-right: 2rem;
     color: #eee;
-    grid-area: "left";
-    // justify-self: flex-start;
+  
     .overlay_grid {
       display: grid;
       grid-template-columns: 50px 50px 5fr 50px 50px;
       grid-template-rows: 1fr 1fr 50px;
+
+      @include sm{
+        grid-template-columns:50px 30px 3fr 30px 30px;
+        grid-template-rows: 1fr 1fr 30px;
+      }
       // height: 70vh;
       ._bg {
         background: transparent;
@@ -119,23 +123,28 @@ export default {
       }
     }
   }
-  .right_main {
+  .right_highlight {
     padding-left: 2rem;
-    grid-area: "left";
-    // justify-self: flex-end;
-    .content {
-      color: #ddd;
-    }
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    // grid-area: "left";
+    display: grid;
+
+  
 
     ._intro {
+      display: grid;
       color: #ddd;
-      font-size: 18px;
-      max-width: 500px;
-      padding: 2rem 3rem 2rem 0;
+      font-size: 1rem;
+      padding: 2rem 2rem 2rem 0;
 
       ._intro_text {
         margin-bottom: 2rem;
-        word-wrap: break-word;
+        max-width: 50ch;
+
+        @include sm{
+          padding-right: 20vmin;
+        }
       }
     }
   }
@@ -143,13 +152,29 @@ export default {
 
 .section {
   background: $offWhite;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 2rem 4rem;
+  .domain_grid{
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+    .domain_card{
+      background: rgb(255, 255, 255);
+      height: 400px;
+    }
+  }
+
 }
 
 .dp_grid {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 200px;
+
+  @include sm{
+    grid-template-rows: 50px 100px;
+  }
 
   ._frame {
     border-top: 10px solid $orange;
@@ -158,13 +183,26 @@ export default {
     background: transparent;
     grid-row: 2 / span 1;
     grid-column: 1 / span 1;
+
+     @include sm{
+     border-top: 5px solid $orange;
+    border-left: 5px solid $orange;
+    border-bottom: 5px solid $orange;
+  }
   }
   ._dp {
     grid-row: 1 / span 3;
     grid-column: 1 / span 3;
     padding: 10px;
+    height: 300px;
     z-index: 1;
     animation-delay: 1s !important;
+
+    @include sm{
+      padding: 5px;
+    height: 150px;
+  }
+
   }
 }
 </style>

@@ -83,12 +83,17 @@ nav a{
 //TYPOGRAPHY
 .display_1{
   font-size: 50px;
-  
   margin: 0;
+  @include sm{
+    font-size: 40px;
+  }
 }
 .display_2{
   font-size: 40px;
   margin: 0;
+  @include sm{
+    font-size: 30px;
+  }
 }
 .display_3{
   font-size: 30px;
@@ -118,6 +123,27 @@ nav a{
   font-size: 3vmax;
   font-weight: 400;
   // white-space: pre-line
+}
+
+.section_head{
+  font-family: 'Roboto', sans-serif;
+  color: #141414;
+  font-size: 24px;
+  font-weight: 500;
+  padding: 1rem 1rem 1rem 0;
+  margin-bottom: 2rem;
+  position: relative;
+
+  &::after{
+    content: '';
+    width: 40px;
+    height: 0.5rem;
+    display: block;
+    position: absolute;
+    background: $yellow;
+    left: 0;
+    bottom: 0px;
+  }
 }
 
 .btn{
