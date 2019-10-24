@@ -38,7 +38,7 @@ $screen-xl-min: 1200px;
 
 // Medium devices
 @mixin md {
-  @media (min-width: #{$screen-md-min}) {
+  @media (max-width: #{$screen-md-min}) {
       @content;
   }
 }
@@ -71,6 +71,41 @@ body {
   overflow-x: hidden;
   font-family: "Poppins", sans-serif;
 }
+
+#app{
+  overflow-x: hidden;
+}
+
+nav a{
+  text-decoration: none;
+}
+
+//TYPOGRAPHY
+.display_1{
+  font-size: 50px;
+  
+  margin: 0;
+}
+.display_2{
+  font-size: 40px;
+  margin: 0;
+}
+.display_3{
+  font-size: 30px;
+  margin: 0;
+}
+
+.bold_txt{
+  font-weight: 700;
+}
+.medium_txt{
+  font-weight: 500;
+}
+
+.light_txt{
+  font-weight: 400;
+}
+
 
 .title{
   font-size: 5vmax;
@@ -114,7 +149,6 @@ body {
 
 
 //animate
-
 @charset "UTF-8";
 
 /*!

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header id="nav">
+    <nav id="nav">
       <div class="brand">
         <div class="brand_logo">
           <img src="@/assets/sklogo.png" alt srcset height="25px" />
@@ -10,14 +10,18 @@
       <div class="ham_icon" @click="showMenu">
         <font-awesome-icon :icon="['fas', 'bars']" />
       </div>
-      <div class="nav_menu">
-        <div class="menu_item">Home</div>
-        <div class="menu_item">Projects</div>
-        <div class="menu_item">Misc</div>
-        <div class="menu_item">Contact</div>
-      </div>
-    </header>
-    <router-view />
+      <ul class="nav_menu">
+        <router-link to="/" tag="li"> <div class="menu_item">Home</div></router-link>
+        <router-link to="/profile" tag="li"> <div class="menu_item">Profile</div></router-link>
+        <router-link to="/projects" tag="li"> <div class="menu_item">Projects</div></router-link>
+        <router-link to="/contact" tag="li"> <div class="menu_item">Contact</div></router-link>
+       
+      </ul>
+    </nav>
+    <main>
+       <router-view />
+    </main>
+   
     <div class="footer">
       <div class="brand">
         <div class="brand_logo">
@@ -52,8 +56,12 @@ export default {
 </script>
 
 <style lang="scss">
-// @import "./assets/style/global";
 
+main{
+  @include sm{
+    margin-top: 120px;
+  }
+}
 #nav {
   min-height: 70px;
   background: $darkSec;
@@ -62,9 +70,18 @@ export default {
   justify-content: space-around;
   position: relative;
   font-family: 'Poppins', sans-serif;
+  z-index: 999;
+
+  @include sm{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0
+  }
 
   .ham_icon {
     font-size: 18px;
+    padding: 10px;
     color: #ddd;
     display: none;
 
@@ -80,6 +97,9 @@ export default {
     text-transform: lowercase;
     align-items: center;
     justify-content: center;
+    list-style: none;
+
+   
 
     @include sm {
       transform: translateX(100%);
@@ -98,6 +118,7 @@ export default {
       display: block;
       height: 100%;
       position: relative;
+      cursor: pointer;
 
       &::after {
         content: "";
@@ -112,13 +133,27 @@ export default {
         transition: all 0.3s ease-in;
       }
 
-      &:hover::after {
+     &:hover::after {
         transform: scaleX(1);
         transform-origin: center;
         background: $orange;
         // width: 100%;
       }
     }
+
+      .router-link-exact-active{
+       .menu_item::after{
+        content: "";
+        width: 100%;
+        height: 3px;
+        background: $yellow;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        transform: scaleX(1);
+       }
+       
+     }
   }
 }
 
