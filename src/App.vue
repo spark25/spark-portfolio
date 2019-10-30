@@ -11,17 +11,24 @@
         <font-awesome-icon :icon="['fas', 'bars']" />
       </div>
       <ul class="nav_menu">
-        <router-link to="/" tag="li"> <div class="menu_item">Home</div></router-link>
-        <router-link to="/profile" tag="li"> <div class="menu_item">Profile</div></router-link>
-        <router-link to="/projects" tag="li"> <div class="menu_item">Projects</div></router-link>
-        <router-link to="/contact" tag="li"> <div class="menu_item">Contact</div></router-link>
-       
+        <router-link to="/" tag="li">
+          <div class="menu_item">Home</div>
+        </router-link>
+        <router-link to="/profile" tag="li">
+          <div class="menu_item">Profile</div>
+        </router-link>
+        <router-link to="/projects" tag="li">
+          <div class="menu_item">Projects</div>
+        </router-link>
+        <router-link to="/contact" tag="li">
+          <div class="menu_item">Contact</div>
+        </router-link>
       </ul>
     </nav>
     <main>
-       <router-view />
+      <router-view />
     </main>
-   
+
     <div class="footer">
       <div class="brand">
         <div class="brand_logo">
@@ -56,10 +63,9 @@ export default {
 </script>
 
 <style lang="scss">
-
-main{
-  @include sm{
-    margin-top: 120px;
+main {
+  @include sm {
+    margin-top: 100px;
   }
 }
 #nav {
@@ -69,14 +75,13 @@ main{
   align-items: center;
   justify-content: space-around;
   position: relative;
-  font-family: 'Poppins', sans-serif;
   z-index: 999;
 
-  @include sm{
+  @include sm {
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0
+    left: 0;
   }
 
   .ham_icon {
@@ -92,14 +97,13 @@ main{
   }
   .nav_menu {
     display: flex;
-    color: #ddd;
+    color: $offWhite;
+    font-family: "Raleway", sans-serif;
     font-weight: 500;
     text-transform: lowercase;
     align-items: center;
     justify-content: center;
     list-style: none;
-
-   
 
     @include sm {
       transform: translateX(100%);
@@ -133,7 +137,7 @@ main{
         transition: all 0.3s ease-in;
       }
 
-     &:hover::after {
+      &:hover::after {
         transform: scaleX(1);
         transform-origin: center;
         background: $orange;
@@ -141,8 +145,8 @@ main{
       }
     }
 
-      .router-link-exact-active{
-       .menu_item::after{
+    .router-link-exact-active {
+      .menu_item::after {
         content: "";
         width: 100%;
         height: 3px;
@@ -151,9 +155,8 @@ main{
         left: 0;
         bottom: 0;
         transform: scaleX(1);
-       }
-       
-     }
+      }
+    }
   }
 }
 
@@ -193,7 +196,6 @@ main{
     justify-content: space-evenly;
   }
 
-
   .social_icons {
     // flex: 1;
     display: grid;
@@ -203,9 +205,9 @@ main{
     padding: 1rem 2rem;
 
     @include sm {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    } 
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
 
     a {
       text-decoration: none;
@@ -222,6 +224,7 @@ main{
     font-size: 14px;
     color: #ccc;
     padding: 1rem 2rem;
+    text-align: center;
   }
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
 <div class="_home">
+  <template v-if="load">
     <div class="highlight">
       <div class="left_highlight">
         <div class="overlay_grid">
@@ -23,7 +24,7 @@
             class="_frame animated fadeInRight"
             style="color:#ddd; display:flex; align-items:center; justify-content:center;"
           >
-          <div class="display_1"> Hello!</div>
+          <div class="display_1 bold_txt"> Hello!</div>
           </div>
           <img :src="dp" alt srcset class="_dp animated fadeIn" />
         </div>
@@ -34,24 +35,30 @@
             <br> currently working with Zensar Technologies
             <br> I create scalable web apps and make sure they look awesome while I am at it.
           </p>
-
-          <div class="btn btn-yellow">
+          <router-link to="/profile"> <div class="btn btn-yellow">
             <div class="btn_text">Know More</div>
             <div class="btn_icon">
               <font-awesome-icon :icon="['fas', 'arrow-right']" />
             </div>
-          </div>
+          </div></router-link>
+         
         </div>
       </div>
     </div>
+  </template>
+    
 
-    <section class="section">
-      <div class="section_head">What I do</div>
+    <section class="section" id="domainSection">
+      <div class="section_head"><div class="head_txt">What I do</div>
+        <div class="dark_mode_btn" @click="enterDarkMode">
+          <font-awesome-icon :icon="darkModeIcon" />
+        </div>
+      </div>
       <div class="domain_grid">
         <div class="domain_card _design">
          <img src="@/assets/illustrations/design2.svg" class="card_img" alt="" srcset="">
           <div class="card_info">
-            <div class="card_title heading light_text">UI/UX Design</div>
+            <div class="card_title  ">UI/UX Design</div>
             <div class="card_desc">
               Wire-Frames, mockups and more
             </div>
@@ -60,7 +67,7 @@
         <div class="domain_card _responsive">
            <img src="@/assets/illustrations/responsive2.svg" class="card_img" alt="" srcset="">
           <div class="card_info ">
-            <div class="card_title heading light_text">Responsive Design</div>
+            <div class="card_title">Responsive Design</div>
             <div class="card_desc">
               Design that adaps to every device you use
             </div>
@@ -69,7 +76,7 @@
         <div class="domain_card _development">
            <img src="@/assets/illustrations/webdev2.svg" class="card_img" alt="" srcset="">
           <div class="card_info">
-            <div class="card_title heading light_text"> Web Development</div>
+            <div class="card_title  "> Web Development</div>
             <div class="card_desc">
               Backend, Databases, APIs, everything covered
             </div>
@@ -78,7 +85,7 @@
         <div class="domain_card _visualization">
            <img src="@/assets/illustrations/visualization1.svg" class="card_img" alt="" srcset="">
           <div class="card_info">
-            <div class="card_title heading light_text">Visualization</div>
+            <div class="card_title  ">Visualization</div>
             <div class="card_desc">
               Data into information, and information into insights
             </div>
@@ -95,18 +102,44 @@ export default {
   name: "home",
   data(){
     return{
-      dp : ""
+      load:false,
+      dp : "",
+      darkMode: false,
+      msg: 'Toggle Dark-Mode',
+      darkModeIcon:"moon"
     }
   },
   components: {},
+  methods:{
+    enterDarkMode(){
+      if(this.darkMode == false){
+        document.getElementById('domainSection').classList.add("darkMode");
+        this.darkModeIcon = "sun"
+        this.darkMode = true;
+      }else{
+       document.getElementById('domainSection').classList.remove("darkMode");
+       this.darkModeIcon = "moon"
+         this.darkMode = false;
+      }
+      
+    }
+  },
   created(){
     this.dp = dp_data.data
     
+  },
+  mounted(){
+     this.load = true
   }
 };
 </script>
 <style lang="scss" scoped>
-
+.dark_mode_btn{
+  font-size: 1rem;
+  padding: 5px 15px;
+  background: rgba(192, 192, 192, 0.5);
+  cursor: pointer;
+}
 .highlight {
   width: 100%;
   min-height: 90vh;
@@ -150,7 +183,7 @@ export default {
         grid-column: 3 / span 1;
         grid-row: 1 / span 2;
         .bullet_lines{
-          font-family: 'Roboto', sans-serif;
+          font-family: 'Raleway', sans-serif;
         }
       }
     }
@@ -193,6 +226,8 @@ export default {
    @include md{
     padding: 3rem 1.5rem; 
   }
+
+ 
   .domain_grid{
     display: grid;
     grid-gap: 1rem;
@@ -212,8 +247,9 @@ export default {
       grid-template-rows: auto minmax(30%, 35%);
       transition: transform 0.5s;
       overflow: hidden;
+      // box-shadow: 0px 18px 30px -12px #c2c2c2
       &:hover{ 
-        transform: translateY(-10px);
+        transform: translateY(-5px);
         // box-shadow: 0px 18px 30px -12px #c2c2c2
         }
 
@@ -236,9 +272,9 @@ export default {
 
       }
       .card_info{
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Raleway', sans-serif;
         background: $darkSec;
-        color: #ddd;
+        color: #eeeeee;
         padding: 0.5rem 1rem;
         transition: color 0.5s;
         z-index: 2;
@@ -250,7 +286,7 @@ export default {
         .card_desc{
            font-family: 'Poppins', sans-serif !important;
            line-height: normal;
-          color: #c2c2c2 !important;
+          color: #dddddd !important;
           margin-top: 10px;
       }
       }
@@ -258,6 +294,26 @@ export default {
   }
 
 }
+
+//Dark Mode for section
+.darkMode{
+  background: $darkPrime !important;
+
+
+  .section_head{
+    color: $offWhite !important;
+  }
+  .domain_grid{
+   
+    .domain_card{
+      background: $darkSec !important;
+     
+      }
+      .card_info{
+        background: $notBlack !important;
+      }
+    }
+  }
 
 .dp_grid {
   display: grid;

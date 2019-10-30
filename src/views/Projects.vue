@@ -1,6 +1,6 @@
 <template>
   <div class="_profile">
-    <div class="section_head light_color"><div class="head_txt">Profile</div></div>
+    <div class="section_head light_color"><div class="head_txt">Projects</div></div>
   </div>
 </template>
 

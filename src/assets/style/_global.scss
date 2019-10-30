@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Roboto:300,400,500,700|Poppins:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Raleway:400,500,700,800|Roboto:300,400,500,700|Poppins:400,500,700&display=swap');
 
 // font-family: 'Poppins', sans-serif;
 // font-family: 'Roboto Condensed', sans-serif;
@@ -65,7 +65,9 @@ $screen-xl-min: 1200px;
   // font-family: 'Roboto', sans-serif;
   // outline: 2px solid yellow;
 }
-
+a{
+  text-decoration: none;
+}
 body {
   background: $darkPrime;
   overflow-x: hidden;
@@ -84,6 +86,7 @@ nav a{
 .display_1{
   font-size: 50px;
   margin: 0;
+  font-family: 'Raleway', sans-serif;
   @include sm{
     font-size: 40px;
   }
@@ -91,6 +94,7 @@ nav a{
 .display_2{
   font-size: 40px;
   margin: 0;
+  font-family: 'Raleway', sans-serif;
   @include sm{
     font-size: 30px;
   }
@@ -98,6 +102,7 @@ nav a{
 .display_3{
   font-size: 30px;
   margin: 0;
+  font-family: 'Raleway', sans-serif;
   @include sm{
     font-size: 20px;
   }
@@ -106,6 +111,13 @@ nav a{
 .heading{
   font-size: 30px;
   margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+.card_title{
+  font-size: 24px;
+  font-weight: 500;
+  font-family: 'Raleway', sans-serif;
 }
 
 .bold_txt{
@@ -127,41 +139,64 @@ nav a{
 .title{
   font-size: 5vmax;
   font-weight: 700;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
   // white-space: pre-line,
 }
 
 .section_head{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Raleway', sans-serif;
   color: #141414;
   font-size: 24px;
-  font-weight: 500;
-  padding: 1rem 1rem 1rem 0;
+  font-weight: 700;
+  padding: 0.5rem 1rem 0.5rem 0;
   margin-bottom: 2rem;
-  position: relative;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  &::after{
-    content: '';
-    width: 40px;
-    height: 0.5rem;
-    display: block;
-    position: absolute;
-    background: $yellow;
-    left: 0;
-    bottom: 0px;
+  .head_txt{
+    position: relative;
+    padding: 0.5rem 0 0.5rem 0;
+    &::after{
+      content: '';
+      width: 40px;
+      height: 5px;
+      display: block;
+      position: absolute;
+      background: $orange;
+      left: 0;
+      bottom: 0px;
+    }
+    &::before{
+      content: '';
+      width: 40px;
+      height: 5px;
+      display: block;
+      position: absolute;
+      background: $yellow;
+      right: 0;
+      top: 0;
+    }
   }
+
+}
+
+.light_color{
+  color: $offWhite !important;
 }
 
 .btn{
-  padding: 10px 20px;
+  padding: 8px 20px;
   background: transparent;
   font-size: 1rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   cursor: pointer;
-  width: fit-content;
-
+  width:  160px;
+  height: 2.8rem;
+  transition: all 0.5s;
   
   .btn_icon{
     padding-left: 15px;
@@ -178,7 +213,79 @@ nav a{
   
   }
 }
+.btn-orange{
+  color: $orange;
+  border: 1px solid $orange;
 
+  &:hover{
+    color: #000;
+    background: $orange;
+  
+  }
+}
+
+
+
+//SLIDER
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #c2c2c2;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: $offWhite;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: $notBlack;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px $notBlack;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
 
 //animate
 @charset "UTF-8";
@@ -3807,3 +3914,60 @@ nav a{
   }
 }
 
+//CSS LOADER
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #fff;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
+  }
+}
