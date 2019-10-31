@@ -12,7 +12,8 @@
         <div class="custom_select_menu">
            <div class="form_control" @click="open_select_menu">
           <input type="text" id="category" disabled placeholder="Select message category" v-model="category"/>
-          <font-awesome-icon :icon="['fas', 'sort-down']" />
+          <div class="drop_icon"> <font-awesome-icon :icon="['fas', 'sort-down']" /></div>
+         
         </div>
 
          <div class="select_menu" v-if="open_select">
@@ -220,7 +221,10 @@ export default {
 
     .custom_select_menu{
       position: relative;
-
+      .drop_icon{
+        padding: 5px 20px;
+        // background: $notBlack;
+      }
         .select_menu {
       position: absolute;
       left:  0;

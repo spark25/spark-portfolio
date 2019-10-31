@@ -11,16 +11,16 @@
         <font-awesome-icon :icon="['fas', 'bars']" />
       </div>
       <ul class="nav_menu">
-        <router-link to="/" tag="li">
+        <router-link to="/" tag="li"  @click.native="showMenu">
           <div class="menu_item">Home</div>
         </router-link>
-        <router-link to="/profile" tag="li">
+        <router-link to="/profile" tag="li"  @click.native="showMenu">
           <div class="menu_item">Profile</div>
         </router-link>
-        <router-link to="/projects" tag="li">
+        <router-link to="/projects" tag="li"  @click.native="showMenu">
           <div class="menu_item">Projects</div>
         </router-link>
-        <router-link to="/contact" tag="li">
+        <router-link to="/contact" tag="li"  @click.native="showMenu">
           <div class="menu_item">Contact</div>
         </router-link>
       </ul>
