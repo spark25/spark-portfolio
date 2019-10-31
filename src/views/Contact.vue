@@ -191,25 +191,13 @@ export default {
   }
 
   .form_section {
-    padding: 2rem;
     position: relative;
 
-    @include sm{
-      padding: 0.5rem;
-    }
     .form_message{
-      font-family: 'Raleway', sans-serif;
-      position: absolute;
-      top: -20px;
-      right: 0;
-      // border-top: 5px solid $yellow;
-      // border-right: 5px solid $orange;
+      font-family: 'Roboto', sans-serif;
+      text-align: right;
       padding: 5px 10px;
       z-index: 1;
-
-      @include sm{
-         top: -30px;
-      }
     }
     .form_control {
       display: flex;

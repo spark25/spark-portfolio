@@ -11,6 +11,7 @@ import VTooltip from 'v-tooltip'
 library.add(faGithub, faInstagram,faLinkedin,faBars,faArrowRight,faSun, faMoon,faPaperPlane,faSortDown, faCheckCircle,faEnvelopeOpen)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VTooltip)
+
 Vue.config.productionTip = false
 
 new Vue({

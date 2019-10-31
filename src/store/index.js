@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import db from "@/firebase/firebase.js";
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -17,11 +17,33 @@ export default new Vuex.Store({
     }
   },
   actions: { 
-    set_skills({ commit }, _skills){
-      commit("SET_SKILLS", _skills)
+    set_skills({ commit }){
+      
+      const _skills = [];
+      const skillsRef = db.collection("skills");
+      const orderedSkills = skillsRef.orderBy("order");
+      orderedSkills.get().then(snapshot => {
+        snapshot.forEach(doc => {
+          _skills.push(doc.data());
+        });
+        localStorage.setItem("_skills",JSON.stringify(_skills))
+        commit("SET_SKILLS", _skills)
+      });
+     
     },
-    set_exp({ commit }, _exp){
-      commit("SET_EXP", _exp)
+
+    set_exp({ commit }){
+      const _exp = [];
+      const expRef = db.collection("experience");
+      const orderedExp = expRef.orderBy("order");
+      orderedExp.get().then(snapshot => {
+        snapshot.forEach(doc => {
+          _exp.push(doc.data());
+        });
+        localStorage.setItem("_exp", JSON.stringify(_exp) )
+        commit("SET_EXP", _exp)
+      });
+      
     }
   },
 

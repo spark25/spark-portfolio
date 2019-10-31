@@ -78,9 +78,9 @@ export default {
       });
     },
     get_exp() {
-      const exp= []
+      const exp = [];
       const expRef = db.collection("experience");
-      const orderedExp= expRef.orderBy("order");
+      const orderedExp = expRef.orderBy("order");
       orderedExp.get().then(snapshot => {
         snapshot.forEach(doc => {
           exp.push(doc.data());
@@ -90,8 +90,8 @@ export default {
     }
   },
   created() {
-   this.get_skills();
-   this.get_exp();
+     this.$store.dispatch("set_skills");
+     this.$store.dispatch("set_exp");
   }
 };
 </script>
