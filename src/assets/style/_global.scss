@@ -86,7 +86,7 @@ nav a{
 .display_1{
   font-size: 50px;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   @include sm{
     font-size: 40px;
   }
@@ -94,7 +94,7 @@ nav a{
 .display_2{
   font-size: 40px;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   @include sm{
     font-size: 30px;
   }
@@ -102,22 +102,22 @@ nav a{
 .display_3{
   font-size: 30px;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   @include sm{
     font-size: 20px;
   }
 }
 
 .heading{
-  font-size: 30px;
+  font-size: 24px;
   margin: 0;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .card_title{
   font-size: 24px;
   font-weight: 500;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .bold_txt{
@@ -139,11 +139,11 @@ nav a{
 .title{
   font-size: 5vmax;
   font-weight: 700;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   // white-space: pre-line,
 }
 
-.page_wrapper {
+.sec_wrapper {
   padding: 2rem 4rem;
   margin-bottom: 4rem;
   @include sm{
@@ -151,7 +151,7 @@ nav a{
   }
 }
 .section_head{
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Roboto', sans-serif;
   color: #141414;
   font-size: 24px;
   font-weight: 700;

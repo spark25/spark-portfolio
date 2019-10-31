@@ -1,5 +1,5 @@
 <template>
-  <div class="_contact page_wrapper">
+  <section class="_contact sec_wrapper">
     <div class="section_head light_color"><h3 class="head_txt">Contact</h3></div>
 
     <div class="contact_wrapper">
@@ -63,7 +63,7 @@
     <template>
     <Snackbar ref="snackbar" baseSize="100px" :holdTime="3000" :position="position" :multiple="true"/>
 </template>
-  </div>
+  </section>
 
 </template>
 

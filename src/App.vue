@@ -53,11 +53,45 @@
 </template>
 
 <script>
+import db from "@/firebase/firebase.js";
 export default {
+  data() {
+    return {
+      skills: [],
+      exp: []
+    };
+  },
   methods: {
     showMenu() {
       document.querySelector(".nav_menu").classList.toggle("showMe");
+    },
+
+    get_skills() {
+      const skills = [];
+      const skillsRef = db.collection("skills");
+      const orderedSkills = skillsRef.orderBy("order");
+      orderedSkills.get().then(snapshot => {
+        snapshot.forEach(doc => {
+          skills.push(doc.data());
+        });
+        this.$store.dispatch("set_skills", skills);
+      });
+    },
+    get_exp() {
+      const exp= []
+      const expRef = db.collection("experience");
+      const orderedExp= expRef.orderBy("order");
+      orderedExp.get().then(snapshot => {
+        snapshot.forEach(doc => {
+          exp.push(doc.data());
+        });
+        this.$store.dispatch("set_exp", exp);
+      });
     }
+  },
+  created() {
+   this.get_skills();
+   this.get_exp();
   }
 };
 </script>
@@ -117,7 +151,7 @@ main {
     }
 
     .menu_item {
-      padding: 10px 5px ;
+      padding: 10px 5px;
       margin-right: 10px;
       display: block;
       height: 100%;
