@@ -1,6 +1,6 @@
 <template>
-  <div class="_contact">
-    <div class="section_head light_color"><div class="head_txt">Contact</div></div>
+  <div class="_contact page_wrapper">
+    <div class="section_head light_color"><h3 class="head_txt">Contact</h3></div>
 
     <div class="contact_wrapper">
       <div class="illustration_sec">
@@ -151,13 +151,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-._contact {
-  padding: 2rem 4rem;
-  margin-bottom: 4rem;
-  @include sm{
-     padding: 1rem;
-  }
-}
 
 .contact_wrapper {
   display: grid;

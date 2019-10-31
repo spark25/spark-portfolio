@@ -117,7 +117,7 @@ main {
     }
 
     .menu_item {
-      padding: 5px;
+      padding: 10px 5px ;
       margin-right: 10px;
       display: block;
       height: 100%;

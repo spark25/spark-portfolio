@@ -9,10 +9,10 @@
           <div class="_fg animated fadeInDown slow">
             <div class="bullet_lines">
               <div class="display_1">
-                <span class="display_1 bold_txt">Fullstack</span><br>
-                <span class="display_1 bold_txt">Developer</span><br>
-                <span class="display_2 light_txt">with love for</span><br>
-                <span class="display_2 light_txt">Design<span class="display_1 bold_txt" style="color:#f78608;">.</span></span>
+                <h1 class="display_1 bold_txt">Fullstack</h1>
+                <h1 class="display_1 bold_txt">Developer</h1>
+                <p class="display_2 light_txt">with love for</p>
+                <p class="display_2 light_txt">Design<span class="display_1 bold_txt" style="color:#f78608;">.</span></p>
               </div>
             </div>
           </div>
@@ -58,7 +58,7 @@
         <div class="domain_card _design">
          <img src="@/assets/illustrations/design2.svg" class="card_img" alt="" srcset="">
           <div class="card_info">
-            <div class="card_title  ">UI/UX Design</div>
+            <h3 class="card_title  ">UI/UX Design</h3>
             <div class="card_desc">
               Wire-Frames, mockups and more
             </div>
@@ -67,7 +67,7 @@
         <div class="domain_card _responsive">
            <img src="@/assets/illustrations/responsive2.svg" class="card_img" alt="" srcset="">
           <div class="card_info ">
-            <div class="card_title">Responsive Design</div>
+            <h3 class="card_title">Responsive Design</h3>
             <div class="card_desc">
               Design that adaps to every device you use
             </div>
@@ -76,7 +76,7 @@
         <div class="domain_card _development">
            <img src="@/assets/illustrations/webdev2.svg" class="card_img" alt="" srcset="">
           <div class="card_info">
-            <div class="card_title  "> Web Development</div>
+            <h3 class="card_title  "> Web Development</h3>
             <div class="card_desc">
               Backend, Databases, APIs, everything covered
             </div>
@@ -85,7 +85,7 @@
         <div class="domain_card _visualization">
            <img src="@/assets/illustrations/visualization1.svg" class="card_img" alt="" srcset="">
           <div class="card_info">
-            <div class="card_title  ">Visualization</div>
+            <h3 class="card_title ">Visualization</h3>
             <div class="card_desc">
               Data into information, and information into insights
             </div>
