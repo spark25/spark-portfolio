@@ -130,6 +130,29 @@ export default {
   },
   mounted(){
      this.load = true
+
+    const domain_card = document.querySelectorAll('.domain_card')
+    const options = {
+      root: null,
+      threshold: 0,
+      // rooMargin:'200px'
+    }
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry =>{
+          if(!entry.isIntersecting){
+            return
+          }else if(entry.isIntersecting){
+            entry.target.classList.add("animated","fadeInUp","reveal_me")
+          }
+
+        })
+    }, options)
+
+     domain_card.forEach(card =>{
+      observer.observe(card)
+    })
+   
   }
 };
 </script>
@@ -142,7 +165,7 @@ export default {
 }
 .highlight {
   width: 100%;
-  min-height: 90vh;
+  min-height: 92vh;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-gap: 1rem;
@@ -219,6 +242,7 @@ export default {
   background: $offWhite;
   min-height: 100vh;
   padding: 4rem 4rem;
+  overflow-y: hidden; 
 
   @include sm{
     padding: 3rem 1.5rem; 
@@ -229,25 +253,51 @@ export default {
 
  
   .domain_grid{
+   
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    transition: opacity 0.5s;
+    // transform: translateY(-10%);
+    
 
      @include sm{
-   grid-gap: 2rem;
+    grid-gap: 2rem;
   }
 
     @include md{
    grid-gap: 2rem;
   }
     .domain_card{
+      opacity: 0;
       background: rgb(255, 255, 255);
       height: 400px;
       display: grid;
       grid-template-rows: auto minmax(30%, 35%);
       transition: transform 0.5s;
       overflow: hidden;
-      // box-shadow: 0px 18px 30px -12px #c2c2c2
+
+      &:nth-child(2){
+        animation-delay: 0.3s
+      }
+      &:nth-child(3){
+        animation-delay: 0.6s
+      }
+      &:nth-child(4){
+        animation-delay: 0.9s
+      }
+     @include sm{ 
+       &:nth-child(2){
+        animation-delay: 0s;
+      }
+      &:nth-child(3){
+        animation-delay: 0s;
+      }
+      &:nth-child(4){
+        animation-delay: 0s;
+      }
+      }
+
       &:hover{ 
         transform: translateY(-5px);
         // box-shadow: 0px 18px 30px -12px #c2c2c2

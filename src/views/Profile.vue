@@ -9,8 +9,8 @@
           <h1 class="skill_head display_1 bold_txt light_color">Skills</h1>
         </div>
         <div class="skill_right">
-          <div class="_skills animated zoomIn" style="font-size:5rem;">
-            <div v-for="skill in skills" :key="skill.id" class="icon_wrapper">
+          <div class="_skills" style="font-size:5rem;">
+            <div v-for="skill in skills" :key="skill.id" class="icon_wrapper animated zoomIn">
               <i :class="skill.class"></i>
             </div>
           </div>
@@ -22,7 +22,7 @@
       <div class="article_layout">
         <div class="section_title">experience</div>
         <div class="exp_box" v-for="exp in experience" :key="exp.id">
-          <div class="exp_title heading bold_txt" v-tooltip="'You have  new messages.'">{{ exp.title}}</div>
+          <div class="exp_title heading bold_txt">{{ exp.title}}</div>
           <p class="exp_short_desc">{{ exp.description}}</p>
           <div class="_tech">
             <div class="tech_icon" v-for="tech in exp.stack" :key="tech.id">
@@ -105,7 +105,31 @@ export default {
   },
 
   mounted(){
-    this.icon_fix()
+    this.icon_fix();
+    const exp_boxes = document.querySelectorAll('.exp_box')
+    const options = {
+      root: null,
+      threshold: 0.3,
+      // rooMargin:'200px'
+    }
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry =>{
+          if(!entry.isIntersecting){
+            return
+          }else if(entry.isIntersecting){
+            entry.target.classList.add("animated", "fadeInUp", "reveal_me")
+          }
+          // console.log(entry.target)
+       
+          // observer.unobserve(entry.target)
+        })
+    }, options)
+
+    exp_boxes.forEach(box =>{
+      observer.observe(box)
+    })
+
   }
 };
 </script>
@@ -153,13 +177,17 @@ export default {
         align-items: center;
         justify-content: center;
 
-        // &:nth-child(even){
-        //   margin-bottom: 50px;
+        &:nth-child(even){
+         animation-delay: 0.3s
+        }
+        &:nth-child(odd){
+         animation-delay: 0.1s
+        }
+        // @include transition;
 
-        // }
         i {
           transition: all 0.5s;
-          //  color: #888;
+          // //  color: #888;
          
           &:hover {
             transform: scale(1.5);
@@ -183,7 +211,8 @@ export default {
   width: 100%;
   min-height: 100vh;
   padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 8rem;
+  // margin-bottom: 4rem;
 
   .article_layout {
     display: grid;
@@ -201,7 +230,9 @@ export default {
       font-size: 8vmin;
       font-weight: 800;
     }
+
     .exp_box {
+      opacity: 0;
       grid-column: 2 / auto;
       background: #fff;
       padding: 2rem;

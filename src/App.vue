@@ -103,7 +103,7 @@ main {
   }
 }
 #nav {
-  min-height: 70px;
+  min-height: 64px;
   background: $darkSec;
   display: flex;
   align-items: center;
@@ -112,6 +112,7 @@ main {
   z-index: 999;
 
   @include sm {
+    min-height: 56px;
     position: fixed;
     width: 100%;
     top: 0;

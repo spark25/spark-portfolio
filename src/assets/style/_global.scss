@@ -12,6 +12,7 @@ $bitterSweet: #FF6F5E;
 $richCoral: #FF6C47;
 $orange : #f78608;
 $yellow: #fec200;
+$randomnumber: random(5);
 
 //Screen size
 
@@ -54,6 +55,15 @@ $screen-xl-min: 1200px;
 @mixin xl {
   @media (min-width: #{$screen-xl-min}) {
       @content;
+  }
+}
+
+
+@mixin transition {
+  @for $i from 1 through 15 {
+    &:nth-child(#{$i}) {
+      animation-delay: $randomnumber + 's';
+    }
   }
 }
 
@@ -233,6 +243,12 @@ nav a{
     background: $orange;
   
   }
+}
+
+.reveal_me{
+  // transform: translateY(0);
+  opacity: 1 !important;
+  
 }
 
 //Tooltip
