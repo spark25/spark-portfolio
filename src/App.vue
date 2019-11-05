@@ -97,9 +97,10 @@ export default {
 </script>
 
 <style lang="scss">
+
 main {
   @include sm {
-    margin-top: 100px;
+    margin-top: 80px;
   }
 }
 #nav {
@@ -133,7 +134,7 @@ main {
   .nav_menu {
     display: flex;
     color: $offWhite;
-    font-family: "Raleway", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     text-transform: lowercase;
     align-items: center;

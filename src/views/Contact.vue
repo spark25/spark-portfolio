@@ -1,31 +1,30 @@
 <template>
   <section class="_contact sec_wrapper">
-    <div class="section_head light_color"><h3 class="head_txt">Contact</h3></div>
+    <div class="section_head light_color">
+        <div class="head_txt">Contact</div>
+      </div>
 
     <div class="contact_wrapper">
       <div class="illustration_sec">
-        <img src="@/assets/illustrations/arrived.svg" alt srcset id="illustration" />
+        <img src="@/assets/illustrations/arrived.svg" alt srcset id="illustration"/>
       </div>
 
       <div class="form_section">
-        <div class="display_3 light_color form_message animated flipInX">Get in touch</div>
+        <div class="section_title">get in touch</div>
+        <div class="_form">
         <div class="custom_select_menu">
            <div class="form_control" @click="open_select_menu">
           <input type="text" id="category" disabled placeholder="Select message category" v-model="category"/>
           <div class="drop_icon"> <font-awesome-icon :icon="['fas', 'sort-down']" /></div>
          
         </div>
-
          <div class="select_menu" v-if="open_select">
           <ul>
             <li v-for="cat in contact_cat" :key="cat.id" @click="select_this($event)">{{ cat.category }}</li>
           </ul>
         </div>
-
         </div>
        
-       
-
         <div class="form_control">
           <input type="text" id="name" placeholder="eg: John Snow" v-model="name" />
         </div>
@@ -34,7 +33,7 @@
         </div>
 
         <div class="form_control">
-          <textarea name="message" id="message" cols="30" rows="10" v-model="message" placeholder="Enter your message"></textarea>
+          <textarea name="message" id="message" cols="30" rows="6" v-model="message" placeholder="Enter your message"></textarea>
         </div>
 
         <div class="contact_btn_group">
@@ -48,15 +47,22 @@
           <template v-else><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> </template>
           
         </div>
-        <div class="bold_text light_color">Or</div>
-        <a href="mailto:isumitk@outlook.com" target="_blank" rel="noopener noreferrer">
-        <div class="btn btn-orange">
-          <div class="btn_text">Email Me</div>
-          <div class="btn_icon">
-            <font-awesome-icon :icon="['fas', 'envelope-open']" />
-          </div>
-        </div>
+         <div class="social_icons">
+        <a href="http://github.com/spark25" target="_blank">
+          <font-awesome-icon :icon="['fab', 'github']" />
         </a>
+        <a href="https://www.linkedin.com/in/isumitk/" target="_blank">
+          <font-awesome-icon :icon="['fab', 'linkedin']" />
+        </a>
+        <a href="http://instagram.com/toosumit" target="_blank">
+          <font-awesome-icon :icon="['fab', 'instagram']" />
+        </a>
+        <a href="mailto:isumitk@outlook.com" target="_top">
+          <font-awesome-icon :icon="['fas', 'envelope']" />
+        </a>
+      </div>
+        </div>
+
         </div>
       
       </div>
@@ -84,7 +90,7 @@ export default {
       message: "",
       open_select: false,
       btn_loading : false,
-      position: 'bottom-right'
+      position: 'top-right'
     };
   },
   methods: {
@@ -101,9 +107,8 @@ export default {
       db.collection("messages")
         .add(form_data)
         .then(() => {
-          console.log("Message sent successfully.");
            this.btn_loading = false;
-           this.$refs.snackbar.info('Message sent successfully.')
+           this.$refs.snackbar.info('Thank you for connecting. I\'ll get in touch.')
            this.clearForm()
         })
         .catch(err => {
@@ -193,6 +198,7 @@ export default {
 
   .form_section {
     position: relative;
+    display: flex;
 
     .form_message{
       font-family: 'Roboto', sans-serif;
@@ -200,7 +206,10 @@ export default {
       padding: 5px 10px;
       z-index: 1;
     }
-    .form_control {
+
+    ._form{
+      flex: 1;
+      .form_control {
       display: flex;
       align-items: center;
       padding: 5px;
@@ -248,10 +257,35 @@ export default {
     }
     .contact_btn_group{
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
     }
   
+    }
+    
   }
 }
+
+ .social_icons {
+    // flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+
+    @include sm {
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #bdbdbd;
+
+      &:hover {
+        color: $offWhite;
+      }
+    }
+  }
 </style>

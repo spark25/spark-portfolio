@@ -1,8 +1,11 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Raleway:400,500,700,800|Roboto:300,400,500,700|Poppins:400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:400,600|Montserrat:400,500,700|Poppins:400,600&display=swap');
 @import url('https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css');
+
+
+// font-family: 'Montserrat', sans-serif;
 // font-family: 'Poppins', sans-serif;
-// font-family: 'Roboto Condensed', sans-serif;
-// font-family: 'Oswald', sans-serif;
+
+
 
 $notBlack: #141414;
 $darkPrime: #1B1B1B;
@@ -22,7 +25,7 @@ $screen-sm-min: 576px;
 // Small tablets (portrait view)
 $screen-md-min: 768px;
 
-// Tablets and small desktops
+// Tablets and small desktopspopp
 $screen-lg-min: 992px;
 
 // Large tablets and desktops
@@ -71,9 +74,21 @@ $screen-xl-min: 1200px;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+  background: $notBlack;
+    
+}
+ 
+::-webkit-scrollbar-thumb {
   
-  // font-family: 'Roboto', sans-serif;
-  // outline: 2px solid yellow;
+    background: rgba($color: #fff, $alpha: 0.1);
 }
 a{
   text-decoration: none;
@@ -96,7 +111,7 @@ nav a{
 .display_1{
   font-size: 50px;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Mo', sans-serif;
   @include sm{
     font-size: 40px;
   }
@@ -104,7 +119,7 @@ nav a{
 .display_2{
   font-size: 40px;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   @include sm{
     font-size: 30px;
   }
@@ -112,7 +127,7 @@ nav a{
 .display_3{
   font-size: 30px;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   @include sm{
     font-size: 20px;
   }
@@ -121,7 +136,7 @@ nav a{
 .heading{
   font-size: 24px;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 
   @include sm{
     font-size: 20px;
@@ -131,7 +146,7 @@ nav a{
 .card_title{
   font-size: 24px;
   font-weight: 500;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .bold_txt{
@@ -153,10 +168,18 @@ nav a{
 .title{
   font-size: 5vmax;
   font-weight: 700;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   // white-space: pre-line,
 }
 
+.section_title{
+  font-family: 'Montserrat', sans-serif;
+  color: #6E6E6E;
+  writing-mode: vertical-rl;
+  text-orientation: sideways;
+  font-size: 5vmin;
+  font-weight: 800;
+}
 .sec_wrapper {
   padding: 2rem 4rem;
   margin-bottom: 4rem;
@@ -165,7 +188,7 @@ nav a{
   }
 }
 .section_head{
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   color: #141414;
   font-size: 24px;
   font-weight: 700;
@@ -249,6 +272,11 @@ nav a{
   // transform: translateY(0);
   opacity: 1 !important;
   
+}
+
+.reveal_slide{
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 //Tooltip
