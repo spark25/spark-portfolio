@@ -175,6 +175,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.sec_wrapper{
+  min-height: 90vh;
+  @include sm{
+    min-height: fit-content;
+  }
+}
 .profile_section {
   display: grid;
   grid-template-columns: 1fr 1fr;
