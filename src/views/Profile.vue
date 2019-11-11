@@ -53,6 +53,7 @@
           </div>
           <div class="period">{{ exp.period }}</div>
         </div>
+        
       </div>
     </section>
   </div>
@@ -303,14 +304,14 @@ export default {
   .article_layout {
     display: grid;
     grid-template-columns:
-      minmax(3rem, 1fr)
+      minmax(2rem, 1fr)
       minmax(300px, 60ch)
-      minmax(3rem, 1fr);
+      minmax(2rem, 1fr);
     grid-row-gap: 1rem;
 
     .section_title {
       grid-column: 1 / auto;
-      font-size: 8vmin;
+      // font-size: 8vmin;
     }
 
     .exp_box {
@@ -366,8 +367,8 @@ export default {
 
       .period {
         position: absolute;
-        right: -1.2rem;
-        top: 10px;
+        right: 0;
+        top: 0;
         font-size: 0.8rem;
         border-right: 2px solid $yellow;
         color: #888;

@@ -12,7 +12,7 @@
       <div class="form_section">
         <div class="section_title">get in touch</div>
         <div class="_form">
-        <div class="custom_select_menu">
+          <div class="custom_select_menu">
            <div class="form_control" @click="open_select_menu">
           <input type="text" id="category" disabled placeholder="Select message category" v-model="category"/>
           <div class="drop_icon"> <font-awesome-icon :icon="['fas', 'sort-down']" /></div>
@@ -33,7 +33,7 @@
         </div>
 
         <div class="form_control">
-          <textarea name="message" id="message" cols="30" rows="6" v-model="message" placeholder="Enter your message"></textarea>
+          <textarea name="message" id="message" cols="30" rows="10" v-model="message" placeholder="Enter your message"></textarea>
         </div>
 
         <div class="contact_btn_group">
@@ -47,7 +47,7 @@
           <template v-else><div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div> </template>
           
         </div>
-         <div class="social_icons">
+        <div class="social_icons">
         <a href="http://github.com/spark25" target="_blank">
           <font-awesome-icon :icon="['fab', 'github']" />
         </a>
@@ -61,6 +61,7 @@
           <font-awesome-icon :icon="['fas', 'envelope']" />
         </a>
       </div>
+   
         </div>
 
         </div>
@@ -108,7 +109,7 @@ export default {
         .add(form_data)
         .then(() => {
            this.btn_loading = false;
-           this.$refs.snackbar.info('Thank you for connecting. I\'ll get in touch.')
+           this.$refs.snackbar.open('Thank you for connecting. I\'ll get in touch.')
            this.clearForm()
         })
         .catch(err => {
@@ -163,26 +164,15 @@ export default {
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 
-  @include sm{
-      grid-gap: 2rem;
-  }
-
 
   @include sm {
-    display: grid;
+    grid-gap: 2rem;
     grid-template-columns: 1fr;
+    grid-template-rows: 200px 1fr;
   }
-  @include md {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
+  
   .illustration_sec {
-  //   background-image: url("../assets/illustrations/arrived.svg");
 
-	// background-repeat: no-repeat;
-	// background-size: cover;
-  // background-position: top right;
-  // min-height: 400px;
   overflow: hidden;
 
     #illustration {
@@ -197,15 +187,7 @@ export default {
   }
 
   .form_section {
-    position: relative;
     display: flex;
-
-    .form_message{
-      font-family: 'Roboto', sans-serif;
-      text-align: right;
-      padding: 5px 10px;
-      z-index: 1;
-    }
 
     ._form{
       flex: 1;
@@ -234,7 +216,8 @@ export default {
         padding: 5px 20px;
         // background: $notBlack;
       }
-        .select_menu {
+      
+      .select_menu {
       position: absolute;
       left:  0;
       top: 0px;
@@ -259,6 +242,10 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
+     
+        @include sm{
+          flex-direction: column;
+        }
     }
   
     }
@@ -267,21 +254,17 @@ export default {
 }
 
  .social_icons {
-    // flex: 1;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 20px;
+    grid-gap: 10px;
     font-size: 1.5rem;
     padding: 1rem 2rem;
 
-    @include sm {
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-    }
 
     a {
       text-decoration: none;
       color: #bdbdbd;
+      padding: 10px;
 
       &:hover {
         color: $offWhite;

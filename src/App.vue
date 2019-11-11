@@ -100,7 +100,7 @@ export default {
 
 main {
   @include sm {
-    margin-top: 80px;
+    margin-top: 5rem;
   }
 }
 #nav {
@@ -236,7 +236,7 @@ main {
     // flex: 1;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
+    grid-gap: 10px;
     font-size: 1.5rem;
     padding: 1rem 2rem;
 
@@ -248,6 +248,7 @@ main {
     a {
       text-decoration: none;
       color: #ccc;
+      padding: 10px;
 
       &:hover {
         color: $offWhite;

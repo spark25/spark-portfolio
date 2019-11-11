@@ -120,7 +120,7 @@ export default {
     },
     observeBullets(){
         const bullets = document.querySelectorAll(".bullet")
-        console.log(bullets);
+        // console.log(bullets);
         
         //Observer for bullets
     const bullet_options = {
@@ -299,9 +299,13 @@ export default {
       background: rgb(255, 255, 255);
       height: 400px;
       display: grid;
-      grid-template-rows: auto minmax(30%, 35%);
+      grid-template-rows: 250px 150px;
       transition: transform 0.5s;
       overflow: hidden;
+
+      &:hover {
+        transform:translateY(-5px);
+      }
 
       &:nth-child(2) {
         animation-delay: 0.2s;
@@ -324,11 +328,7 @@ export default {
         }
       }
 
-      &:hover {
-        transform: translateY(-5px);
-        // box-shadow: 0px 18px 30px -12px #c2c2c2
-      }
-
+    
       @include sm {
         &:hover {
           transform: none;
@@ -336,7 +336,6 @@ export default {
       }
       .card_img {
         max-width: 100%;
-        height: 100%;
         transition: all 5s;
         z-index: 1;
         &:hover {
@@ -349,12 +348,7 @@ export default {
         background: $darkSec;
         color: #eeeeee;
         padding: 0.5rem 1rem;
-        transition: color 0.5s;
-        z-index: 2;
-
-        &:hover {
-          // color: $orange;
-        }
+        z-index: 999;
 
         .card_desc {
           font-family: "Poppins", sans-serif !important;

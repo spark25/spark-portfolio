@@ -78,11 +78,11 @@ $screen-xl-min: 1200px;
 }
 
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 8px;
 }
  
 ::-webkit-scrollbar-track {
-  background: $notBlack;
+  background: rgba($color: #000, $alpha: 0);
     
 }
  
@@ -190,11 +190,8 @@ nav a{
 .section_head{
   font-family: 'Montserrat', sans-serif;
   color: #141414;
-  font-size: 24px;
-  font-weight: 700;
   padding: 0.5rem 1rem 0.5rem 0;
   margin-bottom: 2rem;
-  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -202,6 +199,12 @@ nav a{
   .head_txt{
     position: relative;
     padding: 0.5rem 0 0.5rem 0;
+    font-size: 24px;
+     font-weight: 700;
+
+     @include sm{
+      font-size: 18px;
+     }
     &::after{
       content: '';
       width: 40px;
