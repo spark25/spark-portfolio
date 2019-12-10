@@ -70,7 +70,7 @@
           <img src="@/assets/illustrations/responsive2.svg" class="card_img" alt srcset />
           <div class="card_info">
             <h3 class="card_title">Responsive Design</h3>
-            <div class="card_desc">Design that adaps to every device you use</div>
+            <div class="card_desc">Design that adapts to every device you use</div>
           </div>
         </div>
         <div class="domain_card _development">

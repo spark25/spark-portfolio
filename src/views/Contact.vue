@@ -69,7 +69,7 @@
       </div>
     </div>
     <template>
-    <Snackbar ref="snackbar" baseSize="100px" :holdTime="3000" :position="position" :multiple="true"/>
+    <Snackbar ref="snackbar" baseSize="100px" :holdTime="5000" :position="position" :multiple="true"/>
 </template>
   </section>
 
@@ -91,7 +91,7 @@ export default {
       message: "",
       open_select: false,
       btn_loading : false,
-      position: 'top-right'
+      position: 'bottom-right'
     };
   },
   methods: {
@@ -105,19 +105,29 @@ export default {
       
       };
 
-      db.collection("messages")
+      if( form_data.category.length <= 0 
+      || form_data.name.length <=0 
+      || form_data.email.length <=0 
+      || form_data.message.length <=0){
+
+        this.btn_loading = false;
+        this.$refs.snackbar.error('Stop being lazy, all fields are required.')
+      } else{
+         db.collection("messages")
         .add(form_data)
         .then(() => {
            this.btn_loading = false;
            this.$refs.snackbar.open('Thank you for connecting. I\'ll get in touch.')
            this.clearForm()
         })
-        .catch(err => {
-          console.log("Error sendind messge", err);
+        .catch(() => {
+          // console.log("Error sendind messge", err);
            this.btn_loading = false;
           this.$refs.snackbar.error('Message couldn\'t be sent')
            this.clearForm()
         });
+      }
+     
     },
     open_select_menu(){
       this.open_select = !this.open_select;
@@ -129,8 +139,8 @@ export default {
       try {
         document.querySelector('#category').value = selection;
         this.open_select = false;
-      } catch (error) {
-        console.log("Error selecting Category");
+      } catch (err) {
+        // console.log("Error selecting Category", error);
         
       }
     },
@@ -150,8 +160,8 @@ export default {
         });
         // console.log(this.contact_cat);
       })
-      .catch(err => {
-        console.log("Error getting documents", err);
+      .catch(() => {
+        // console.log("Error getting documents", err);
       });
   }
 };

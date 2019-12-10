@@ -372,7 +372,7 @@ export default {
         font-size: 0.8rem;
         border-right: 2px solid $yellow;
         color: #888;
-        // padding:5px;
+        padding:5px 0px;
         writing-mode: vertical-rl;
         text-orientation: sideways;
       }

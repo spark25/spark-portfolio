@@ -22,8 +22,10 @@
           <img
             :src="project.thumb"
             class="project_thumb"
+           
             v-for="project in projects"
             :key="project.id"
+            :class="{ 'project_thumb_active' :project.order == 1 }"
             @click="selectProject(project.id)"
             :data-after-content="project.title"
           />
@@ -55,6 +57,13 @@ export default {
   },
   methods: {
     selectProject(id) {
+      let thumbs = document.querySelectorAll('.project_thumb')
+      thumbs.forEach(el =>{
+        el.classList.remove('project_thumb_active')
+      })
+
+      event.target.classList.add('project_thumb_active')
+      
       this.currentProject = this.projects.filter(project => {
         return project.id == id;
       })[0];
@@ -71,6 +80,7 @@ export default {
         this.projects.push(project);
       });
       this.currentProject = this.projects[0];
+      document.querySelector('.project_thumb').classList.add('project_thumb_active')
     });
   }
 };
@@ -141,10 +151,21 @@ export default {
         width: 250px;
         height: 140px;
         cursor: pointer;
+        border-bottom: 2px solid transparent;
+        transition: all 0.5s ease-in;
+        opacity: 0.5;
+        z-index: 10;
         @include sm {
         width: 50vw;
         height: 30vw;
       }
+      }
+
+      .project_thumb_active{
+        opacity: 1;
+        z-index: 999 !important;
+        transform: scale(1.1);
+        
       }
 
       .prev {
@@ -159,6 +180,7 @@ export default {
         background: rgba(255, 255, 255, 0.5);
         color: #000;
         z-index: 2;
+        cursor: pointer;
         @include sm {
        display: none
       }
@@ -175,6 +197,7 @@ export default {
         background: rgba(255, 255, 255, 0.5);
         color: #000;
         z-index: 2;
+        cursor: pointer;
            z-index: 2;
         @include sm {
        display: none
