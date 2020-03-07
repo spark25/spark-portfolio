@@ -22,10 +22,8 @@ yarn-error.log*
 *.sw?
 
 # firebase
-/.firebase
-firebase*
-firestore*
-/.firebaserc
+firebase
+firestore
 
 
 
