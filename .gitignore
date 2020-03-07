@@ -26,7 +26,7 @@ yarn-error.log*
 /.firebaserc
 firebase.*
 firestore.*
-
+firebase
 
 
 
