@@ -1,7 +1,7 @@
 .DS_Store
 node_modules
 /dist
- package-lock.json
+package-lock.json
 
 # local env files
 .env.local
@@ -22,8 +22,10 @@ yarn-error.log*
 *.sw?
 
 # firebase
-firebase
-firestore
+/.firebase
+/.firebaserc
+firebase.*
+firestore.*
 
 
 
