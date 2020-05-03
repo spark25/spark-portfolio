@@ -102,6 +102,7 @@ export default {
         name: this.name,
         email: this.email,
         message: this.message,
+        timeStamp: new Date(),
       
       };
 
@@ -113,6 +114,8 @@ export default {
         this.btn_loading = false;
         this.$refs.snackbar.error('Stop being lazy, all fields are required.')
       } else{
+        // console.log(form_data);
+        
          db.collection("messages")
         .add(form_data)
         .then(() => {
